@@ -1,0 +1,6 @@
+framework module Pods_mystargramTests {
+  umbrella header "Pods-mystargramTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
