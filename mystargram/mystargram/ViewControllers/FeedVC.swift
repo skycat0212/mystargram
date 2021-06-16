@@ -15,6 +15,8 @@ class FeedVC: UIViewController {
         
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
+        
+        
     }
     
 
@@ -30,7 +32,7 @@ class FeedVC: UIViewController {
 
 }
 
-extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30
     }
@@ -45,7 +47,21 @@ extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellwidth = (feedCollectionView.bounds.width - 4)/3
+        let cellheight = cellwidth
+        return CGSize(width: cellwidth, height: cellheight)
+    }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
 }
 
 

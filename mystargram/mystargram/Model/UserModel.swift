@@ -19,6 +19,13 @@ struct SignUpModel: Codable {
     let password: String
 }
 
+struct UserModel: Codable {
+    var id: Int
+    var username: String
+    var password: String
+}
+
+
 extension Encodable {
     func toDictionary() -> [String: Any] {
         let encoder = JSONEncoder()

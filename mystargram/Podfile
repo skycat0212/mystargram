@@ -8,6 +8,7 @@ target 'mystargram' do
   # Pods for mystargram
 
   pod 'Alamofire', '~> 5.1'
+  pod 'SDWebImage'
 
   target 'mystargramTests' do
     inherit! :search_paths

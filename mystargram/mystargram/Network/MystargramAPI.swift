@@ -10,7 +10,7 @@ import Alamofire
 
 class Network {
     static let shared: Network = Network()
-    let baseUrl = "http://localhost:8080/"
+    var baseUrl = "http://localhost:8080/"
     
     enum API: String {
         case login = "user/login/"
@@ -22,7 +22,10 @@ class Network {
         AF.request(url, method: .post, parameters: user, encoder: JSONParameterEncoder.default, headers: nil).validate(statusCode: 200..<300).responseDecodable(of: TokenModel.self) { res in
             print("res : ", res)
             print("result value : ", res.result)
-            print("data value : ", res.data)
+            if let data = res.data {
+                print("data value : ", data)
+            }
+//            print("data value unwrap : ", res.data!)
             switch res.result {
             case .success(let data):
                 print("data : ", data)
@@ -48,6 +51,77 @@ class Network {
         }
     }
     
+    func getArticleById(id: Int, completion: @escaping(Result<ArticleModel, AFError>) -> Void) {
+        let url = baseUrl + "article/\(id)"
+        guard let token = globalToken?.token else { return }
+        let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: nil as ArticleModel?,
+                   encoder: JSONParameterEncoder.default,
+                   headers: header).validate().responseDecodable(of: ArticleModel.self) {
+                    res in
+                    
+//                    switch res.result {
+//                    case .success(let data):
+//                        completion(data as ArticleModel)
+//                        break
+//                    case .failure(let err):
+//                        completion(err)
+//                        break
+////                    }
+//                    print("result: \(res)")
+//                    print("result data: \(res.data)")
+//                    print("result data unwrap: \(res.data!)")
+                    completion(res.result)
+                   }
+        
+    }
+    
+    func getArticlesByPage(page: Int, completion: @escaping(Result<Array<ArticleModel>, AFError>) -> Void) {
+        let url = baseUrl + "article/list/recent/" + String(page)
+        guard let token = globalToken?.token else { return }
+        let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
+        
+        AF.request(
+            url,
+            method: .get,
+            parameters: nil as Array<ArticleModel>?,
+            encoder: JSONParameterEncoder.default,
+            headers: header).validate().responseDecodable(of: Array<ArticleModel>.self) {
+                res in
+                completion(res.result)
+                
+            }
+        
+    }
+    
+    func saveArticle(articlePack: ArticlePack, completion:@escaping() -> Void) {
+        
+        let url = baseUrl + "article/write"
+        guard let token = globalToken?.token else { return }
+        let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
+        
+        print("input article : ", articlePack)
+        
+        AF.request(
+            url,
+            method: .post,
+            parameters: articlePack,
+            encoder: JSONParameterEncoder.default,
+            headers: header).responseJSON { res in
+                switch res.result {
+                case .success(let data):
+                    print("data : ", data)
+                    print("data as String : ", data)
+                case .failure(let error):
+                    print("err : ", error)
+                }
+                
+            }
+        
+    }
     
     
 }

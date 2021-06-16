@@ -20,6 +20,10 @@
 		3B6E7FB32665138400F4AB47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E7FB12665138400F4AB47 /* LaunchScreen.storyboard */; };
 		3B6E7FBE2665138500F4AB47 /* mystargramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E7FBD2665138500F4AB47 /* mystargramTests.swift */; };
 		3B6E7FC92665138500F4AB47 /* mystargramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E7FC82665138500F4AB47 /* mystargramUITests.swift */; };
+		3B7560052679CEF300D69A8A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7560042679CEF300D69A8A /* UIImage.swift */; };
+		3B7C9C472678B026008EFBF3 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C9C462678B026008EFBF3 /* ArticleModel.swift */; };
+		3B7C9C492678B8DF008EFBF3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C9C482678B8DF008EFBF3 /* TestViewController.swift */; };
+		3B7C9C502678D9B9008EFBF3 /* AddArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C9C4F2678D9B9008EFBF3 /* AddArticleVC.swift */; };
 		3BC62075266CFE5E00E6D259 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC62074266CFE5E00E6D259 /* SignUpVC.swift */; };
 		3BC6207A266CFFCE00E6D259 /* MystargramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC62079266CFFCE00E6D259 /* MystargramAPI.swift */; };
 		3BC6207C266D030D00E6D259 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6207B266D030D00E6D259 /* UserModel.swift */; };
@@ -63,6 +67,10 @@
 		3B6E7FC42665138500F4AB47 /* mystargramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mystargramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6E7FC82665138500F4AB47 /* mystargramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mystargramUITests.swift; sourceTree = "<group>"; };
 		3B6E7FCA2665138500F4AB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B7560042679CEF300D69A8A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		3B7C9C462678B026008EFBF3 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		3B7C9C482678B8DF008EFBF3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		3B7C9C4F2678D9B9008EFBF3 /* AddArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticleVC.swift; sourceTree = "<group>"; };
 		3BC62074266CFE5E00E6D259 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3BC62079266CFFCE00E6D259 /* MystargramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MystargramAPI.swift; sourceTree = "<group>"; };
 		3BC6207B266D030D00E6D259 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -128,6 +136,8 @@
 		3B6E7FA52665137F00F4AB47 /* mystargram */ = {
 			isa = PBXGroup;
 			children = (
+				3B7560032679CEBA00D69A8A /* Extension */,
+				3B7C9C4A2678CB18008EFBF3 /* Cell */,
 				3BC62078266CFF9000E6D259 /* ViewControllers */,
 				3BC62077266CFF6B00E6D259 /* Model */,
 				3BC62076266CFE6400E6D259 /* Network */,
@@ -137,6 +147,7 @@
 				3B6E7FAF2665138400F4AB47 /* Assets.xcassets */,
 				3B6E7FB12665138400F4AB47 /* LaunchScreen.storyboard */,
 				3B6E7FB42665138400F4AB47 /* Info.plist */,
+				3B7C9C482678B8DF008EFBF3 /* TestViewController.swift */,
 			);
 			path = mystargram;
 			sourceTree = "<group>";
@@ -159,6 +170,21 @@
 			path = mystargramUITests;
 			sourceTree = "<group>";
 		};
+		3B7560032679CEBA00D69A8A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3B7560042679CEF300D69A8A /* UIImage.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3B7C9C4A2678CB18008EFBF3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3BC62076266CFE6400E6D259 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +198,7 @@
 			children = (
 				3BC6207B266D030D00E6D259 /* UserModel.swift */,
 				3BC6207D266D0A1500E6D259 /* TokenModel.swift */,
+				3B7C9C462678B026008EFBF3 /* ArticleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +210,7 @@
 				3B2FBAED26677DD800602353 /* TimeLineVC.swift */,
 				3B27E46D26687C6100C6B45D /* FeedVC.swift */,
 				3BC62074266CFE5E00E6D259 /* SignUpVC.swift */,
+				3B7C9C4F2678D9B9008EFBF3 /* AddArticleVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -450,13 +478,17 @@
 			files = (
 				3B6E7FAB2665137F00F4AB47 /* LoginVC.swift in Sources */,
 				3BC6207E266D0A1500E6D259 /* TokenModel.swift in Sources */,
+				3B7C9C492678B8DF008EFBF3 /* TestViewController.swift in Sources */,
 				3B6E7FA72665137F00F4AB47 /* AppDelegate.swift in Sources */,
 				3BC6207C266D030D00E6D259 /* UserModel.swift in Sources */,
 				3B27E46E26687C6100C6B45D /* FeedVC.swift in Sources */,
 				3B6E7FA92665137F00F4AB47 /* SceneDelegate.swift in Sources */,
+				3B7C9C472678B026008EFBF3 /* ArticleModel.swift in Sources */,
 				3BC62075266CFE5E00E6D259 /* SignUpVC.swift in Sources */,
 				3B2FBAEE26677DD800602353 /* TimeLineVC.swift in Sources */,
 				3BC6207A266CFFCE00E6D259 /* MystargramAPI.swift in Sources */,
+				3B7560052679CEF300D69A8A /* UIImage.swift in Sources */,
+				3B7C9C502678D9B9008EFBF3 /* AddArticleVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
