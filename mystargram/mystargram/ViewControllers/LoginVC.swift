@@ -8,6 +8,8 @@
 import UIKit
 
 var globalToken: TokenModel? = nil
+var userName: String = ""
+//var userId: Int = 0
 
 class LoginVC: UIViewController {
     @IBOutlet weak var idTxtField: UITextField!
@@ -31,6 +33,7 @@ class LoginVC: UIViewController {
                 print("token hey : ", token)
                 globalToken = token
                 print("globalToken : ", globalToken)
+                userName = username
                 self.goMain()
             case .failure(let err):
                 print(err)

@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -376,10 +377,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIJ-hR-v5e">
+                                <rect key="frame" x="319" y="102" width="75" height="22"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="refresh" image="arrow.clockwise" catalog="system">
+                                    <color key="titleColor" systemColor="systemIndigoColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshBtnClicked:" destination="HIN-4U-mbK" eventType="touchUpInside" id="gd1-ZV-GTe"/>
+                                    <action selector="refreshBtnClicked:" destination="pdZ-2V-9YT" eventType="touchUpInside" id="yI9-x8-krK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Yt-8f-rmC"/>
                         <color key="backgroundColor" name="BG"/>
                         <constraints>
+                            <constraint firstItem="DIJ-hR-v5e" firstAttribute="centerY" secondItem="ekZ-SN-x2A" secondAttribute="centerY" id="0X8-yw-e8u"/>
                             <constraint firstItem="7iI-sS-9Xa" firstAttribute="top" secondItem="4Yt-8f-rmC" secondAttribute="top" constant="1" id="4Nn-BY-tcq"/>
                             <constraint firstItem="4Yt-8f-rmC" firstAttribute="bottom" secondItem="Zhk-k8-sKe" secondAttribute="bottom" constant="10" id="Ffs-Yu-yQk"/>
                             <constraint firstItem="4Yt-8f-rmC" firstAttribute="trailing" secondItem="Zhk-k8-sKe" secondAttribute="trailing" constant="10" id="N3D-Lr-WIk"/>
@@ -390,6 +403,7 @@
                             <constraint firstItem="7iI-sS-9Xa" firstAttribute="leading" secondItem="4Yt-8f-rmC" secondAttribute="leading" id="fWf-tc-i3B"/>
                             <constraint firstItem="Zhk-k8-sKe" firstAttribute="top" secondItem="ekZ-SN-x2A" secondAttribute="bottom" constant="10" id="jeC-il-XIG"/>
                             <constraint firstItem="4Yt-8f-rmC" firstAttribute="trailing" secondItem="7iI-sS-9Xa" secondAttribute="trailing" id="oT5-zO-pHF"/>
+                            <constraint firstItem="4Yt-8f-rmC" firstAttribute="trailing" secondItem="DIJ-hR-v5e" secondAttribute="trailing" constant="20" id="pzB-td-JK8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="StL-lc-VBz"/>
@@ -450,19 +464,43 @@
                                     </textView>
                                 </subviews>
                             </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BiR-Dm-FCf">
+                                <rect key="frame" x="326" y="59.5" width="68" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7S-hQ-UnI">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="수정"/>
+                                        <connections>
+                                            <action selector="correctBtnClicked:" destination="IWA-qD-HDf" eventType="touchUpInside" id="mVI-O3-hTF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTo-UB-pzu">
+                                        <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="삭제"/>
+                                        <connections>
+                                            <action selector="deleteBtnClicked:" destination="IWA-qD-HDf" eventType="touchUpInside" id="pIp-3S-aEt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0XB-HT-1fE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0XB-HT-1fE" firstAttribute="bottom" secondItem="XS7-eG-eBf" secondAttribute="bottom" id="6pW-W1-s0X"/>
                             <constraint firstItem="XS7-eG-eBf" firstAttribute="top" secondItem="0XB-HT-1fE" secondAttribute="top" constant="10" id="HW5-O6-cfi"/>
+                            <constraint firstItem="0XB-HT-1fE" firstAttribute="trailing" secondItem="BiR-Dm-FCf" secondAttribute="trailing" constant="20" id="K6f-MV-CYD"/>
                             <constraint firstItem="0XB-HT-1fE" firstAttribute="trailing" secondItem="XS7-eG-eBf" secondAttribute="trailing" constant="20" id="MwC-A4-HbW"/>
                             <constraint firstItem="XS7-eG-eBf" firstAttribute="leading" secondItem="0XB-HT-1fE" secondAttribute="leading" constant="20" id="cPx-VL-6k6"/>
+                            <constraint firstItem="BiR-Dm-FCf" firstAttribute="centerY" secondItem="b5Q-nf-kZ5" secondAttribute="centerY" id="vyM-ZB-aLb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="contentImgView" destination="tF8-lW-x9T" id="lkh-UT-zvH"/>
                         <outlet property="contentTxtView" destination="pFH-ma-h4N" id="y6r-0t-Fbm"/>
+                        <outlet property="correctBtn" destination="s7S-hQ-UnI" id="E6W-e0-OSZ"/>
+                        <outlet property="deleteBtn" destination="zTo-UB-pzu" id="Kzb-jl-Ctk"/>
+                        <outlet property="ownerOptionView" destination="BiR-Dm-FCf" id="8Qc-tz-F8J"/>
                         <outlet property="userIdLabel" destination="b5Q-nf-kZ5" id="XHj-8d-53v"/>
                     </connections>
                 </viewController>
@@ -862,6 +900,7 @@
                     <navigationItem key="navigationItem" id="wEE-AJ-cC6"/>
                     <connections>
                         <outlet property="articleCollectionView" destination="Hg7-kf-6iY" id="ypn-eT-gru"/>
+                        <outlet property="ownerOptionView" destination="1T8-4d-Idm" id="zyJ-7N-yHg"/>
                         <outlet property="userNameLabel" destination="eEi-K7-vRT" id="cjT-Gp-Mwz"/>
                     </connections>
                 </viewController>

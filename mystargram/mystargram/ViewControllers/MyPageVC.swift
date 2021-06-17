@@ -8,7 +8,8 @@
 import UIKit
 
 class MyPageVC: UIViewController {
-    
+//    var pageUser: UserModel = user
+    var pageUserName: String = userName
     var pageCnt: Int = 0
     var articles: Array<ArticleModel> = [] {
         didSet {
@@ -16,10 +17,12 @@ class MyPageVC: UIViewController {
         }
     }
     
-    @IBOutlet weak var userNameLabel: UILabel!
+    var isMine: Bool = true
     
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var articleCollectionView: UICollectionView!
     
+    @IBOutlet weak var ownerOptionView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,7 @@ class MyPageVC: UIViewController {
         registCell()
         setupFlowLayout()
         
+        setUI()
         getArticles(pageCnt)
         
     }
@@ -37,8 +41,17 @@ class MyPageVC: UIViewController {
         self.articleCollectionView.register(UINib(nibName: "FeedCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "FeedCell")
     }
     
+    func setUI() {
+        userNameLabel.text = pageUserName
+        if isMine {
+            ownerOptionView.isHidden = false
+        } else {
+            ownerOptionView.isHidden = true
+        }
+    }
+    
     func getArticles(_ page: Int) {
-        Network.shared.getArticlesByPage(page: page) { res in
+        Network.shared.getUserArticlesByPage(userName: userName, page: page) { res in
             let articles: Array<ArticleModel>
             switch res {
             case .success(let articlesData):

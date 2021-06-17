@@ -100,6 +100,24 @@ class Network {
         
     }
     
+    func getUserArticlesByPage(userName: String, page: Int, completion: @escaping(Result<Array<ArticleModel>, AFError>) -> Void) {
+        let url = baseUrl + "article/list/user/" + userName + "/page/" + String(page)
+        guard let token = globalToken?.token else { return }
+        let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
+        
+        AF.request(
+            url,
+            method: .get,
+            parameters: nil as Array<ArticleModel>?,
+            encoder: JSONParameterEncoder.default,
+            headers: header).validate().responseDecodable(of: Array<ArticleModel>.self) {
+                res in
+                completion(res.result)
+                
+            }
+        
+    }
+    
     func saveArticle(articlePack: ArticlePack, completion:@escaping(Bool) -> Void) {
         
         let url = baseUrl + "article/write"
@@ -126,8 +144,31 @@ class Network {
                     break
                 }
             }
-        
     }
+    
+    
+    func correctArticle(article: ArticleModel, completion: @escaping(Bool)->Void) {
+        
+        let url = baseUrl + "article/correct/"
+        guard let token = globalToken?.token else { return }
+        let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
+        AF.request(
+            url,
+            method: .put,
+            parameters: article,
+            encoder: JSONParameterEncoder.default,
+            headers: header).responseJSON { res in
+                switch res.result {
+                case .success(let data):
+                    completion(data as! Bool)
+                    break
+                case .failure(let err):
+                    completion(false)
+                    break
+                }
+            }
+    }
+    
     
     
 }

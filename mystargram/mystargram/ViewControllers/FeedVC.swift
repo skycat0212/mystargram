@@ -60,6 +60,10 @@ class FeedVC: UIViewController {
         self.feedCollectionView.collectionViewLayout = flowLayout
     }
 
+    @IBAction func refreshBtnClicked(_ sender: Any) {
+        self.viewDidLoad()
+    }
+    
 }
 
 extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
