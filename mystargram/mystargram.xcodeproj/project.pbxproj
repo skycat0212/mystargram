@@ -24,11 +24,11 @@
 		3B74AD57267B408E0036C70C /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B74AD55267B408E0036C70C /* FeedCollectionViewCell.xib */; };
 		3B74AD59267B5FB50036C70C /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74AD58267B5FB50036C70C /* DetailVC.swift */; };
 		3B74AD5D267B7D060036C70C /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74AD5C267B7D060036C70C /* MyPageVC.swift */; };
+		3B74AD5F267BDCF90036C70C /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74AD5E267BDCF90036C70C /* SignUpVC.swift */; };
 		3B7560052679CEF300D69A8A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7560042679CEF300D69A8A /* UIImage.swift */; };
 		3B7C9C472678B026008EFBF3 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C9C462678B026008EFBF3 /* ArticleModel.swift */; };
 		3B7C9C492678B8DF008EFBF3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C9C482678B8DF008EFBF3 /* TestViewController.swift */; };
 		3B7C9C502678D9B9008EFBF3 /* AddArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C9C4F2678D9B9008EFBF3 /* AddArticleVC.swift */; };
-		3BC62075266CFE5E00E6D259 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC62074266CFE5E00E6D259 /* SignUpVC.swift */; };
 		3BC6207A266CFFCE00E6D259 /* MystargramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC62079266CFFCE00E6D259 /* MystargramAPI.swift */; };
 		3BC6207C266D030D00E6D259 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6207B266D030D00E6D259 /* UserModel.swift */; };
 		3BC6207E266D0A1500E6D259 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6207D266D0A1500E6D259 /* TokenModel.swift */; };
@@ -75,11 +75,11 @@
 		3B74AD55267B408E0036C70C /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B74AD58267B5FB50036C70C /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		3B74AD5C267B7D060036C70C /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		3B74AD5E267BDCF90036C70C /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3B7560042679CEF300D69A8A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3B7C9C462678B026008EFBF3 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		3B7C9C482678B8DF008EFBF3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		3B7C9C4F2678D9B9008EFBF3 /* AddArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticleVC.swift; sourceTree = "<group>"; };
-		3BC62074266CFE5E00E6D259 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3BC62079266CFFCE00E6D259 /* MystargramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MystargramAPI.swift; sourceTree = "<group>"; };
 		3BC6207B266D030D00E6D259 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3BC6207D266D0A1500E6D259 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
@@ -219,10 +219,10 @@
 				3B6E7FAA2665137F00F4AB47 /* LoginVC.swift */,
 				3B2FBAED26677DD800602353 /* TimeLineVC.swift */,
 				3B27E46D26687C6100C6B45D /* FeedVC.swift */,
-				3BC62074266CFE5E00E6D259 /* SignUpVC.swift */,
 				3B7C9C4F2678D9B9008EFBF3 /* AddArticleVC.swift */,
 				3B74AD58267B5FB50036C70C /* DetailVC.swift */,
 				3B74AD5C267B7D060036C70C /* MyPageVC.swift */,
+				3B74AD5E267BDCF90036C70C /* SignUpVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -497,9 +497,9 @@
 				3B74AD5D267B7D060036C70C /* MyPageVC.swift in Sources */,
 				3B74AD59267B5FB50036C70C /* DetailVC.swift in Sources */,
 				3B27E46E26687C6100C6B45D /* FeedVC.swift in Sources */,
+				3B74AD5F267BDCF90036C70C /* SignUpVC.swift in Sources */,
 				3B6E7FA92665137F00F4AB47 /* SceneDelegate.swift in Sources */,
 				3B7C9C472678B026008EFBF3 /* ArticleModel.swift in Sources */,
-				3BC62075266CFE5E00E6D259 /* SignUpVC.swift in Sources */,
 				3B2FBAEE26677DD800602353 /* TimeLineVC.swift in Sources */,
 				3BC6207A266CFFCE00E6D259 /* MystargramAPI.swift in Sources */,
 				3B7560052679CEF300D69A8A /* UIImage.swift in Sources */,

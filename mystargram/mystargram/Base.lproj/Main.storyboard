@@ -908,10 +908,10 @@
             </objects>
             <point key="canvasLocation" x="2662.3188405797105" y="2038.3928571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign UpVC-->
         <scene sceneID="xrx-za-EbH">
             <objects>
-                <viewController id="s5o-k4-pfC" sceneMemberID="viewController">
+                <viewController id="s5o-k4-pfC" customClass="SignUpVC" customModule="mystargram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZDT-dy-B2y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -934,6 +934,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2x-oX-9cM">
                                                         <rect key="frame" x="302" y="10" width="52" height="30"/>
                                                         <state key="normal" title="중복확인"/>
+                                                        <connections>
+                                                            <action selector="checkValidId:" destination="s5o-k4-pfC" eventType="touchUpInside" id="WuM-iJ-8fM"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1f-bl-7vC">
                                                         <rect key="frame" x="0.0" y="15" width="65" height="20.5"/>
@@ -1053,6 +1056,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7xn-IQ-oFT"/>
+                    <connections>
+                        <outlet property="checkValidBtn" destination="f2x-oX-9cM" id="Nj6-6d-bNb"/>
+                        <outlet property="idTxtField" destination="CAP-zR-IbF" id="2Qh-JG-s4l"/>
+                        <outlet property="pwCheckTxtField" destination="svC-Ys-gRV" id="hyl-9J-enN"/>
+                        <outlet property="pwTxtField" destination="vwk-V4-lUU" id="6jV-4Q-cES"/>
+                        <outlet property="signUpBtn" destination="G4b-Yh-u6i" id="lpT-Gn-g2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xs-cS-yMO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

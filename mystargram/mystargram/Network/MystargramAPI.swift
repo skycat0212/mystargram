@@ -180,14 +180,8 @@ class Network {
             parameters: article,
             encoder: JSONParameterEncoder.default,
             headers: header).responseJSON { res in
-                print("res.data : ", res.data)
-                print("res.result : ", res.result)
-
                 switch res.result {
                 case .success(let data):
-                    print("delete data : ", data)
-                    print("delete data type : ", type(of: data))
-                    print("data as! Bool : ", data as! Bool)
                     var a = data as! Bool
                     completion(a)
                     break
@@ -199,6 +193,26 @@ class Network {
         
     }
     
-    
+    func checkUserExistByUsername(username: String, completion: @escaping(Bool) -> Void) {
+        print("hey")
+        let url = baseUrl + "user/" + username
+        AF.request(
+            url,
+            method: .get,
+            parameters: nil as Bool?,
+            encoder: JSONParameterEncoder.default,
+            headers: nil).responseJSON { res in
+                switch res.result {
+                case .success(let data):
+                    let a = data as! Bool
+                    completion(a)
+                    break
+                case .failure(_):
+                    completion(false)
+                    break
+                }
+            }
+        
+    }
     
 }
