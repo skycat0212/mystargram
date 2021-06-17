@@ -41,7 +41,7 @@ class LoginVC: UIViewController {
     
     func goMain() {
         guard let vc = storyboard?.instantiateViewController(identifier: "MainTabBarController") else { return }
-//        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     

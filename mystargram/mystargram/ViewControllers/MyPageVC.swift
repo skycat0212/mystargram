@@ -1,36 +1,40 @@
 //
-//  FeedVC.swift
+//  MyPageVC.swift
 //  mystargram
 //
-//  Created by Kim on 2021/06/03.
+//  Created by Kim on 2021/06/17.
 //
 
 import UIKit
-import SDWebImage
 
-class FeedVC: UIViewController {
+class MyPageVC: UIViewController {
+    
     var pageCnt: Int = 0
     var articles: Array<ArticleModel> = [] {
         didSet {
-            feedCollectionView.reloadData()
+            articleCollectionView.reloadData()
         }
     }
     
-    @IBOutlet weak var feedCollectionView: UICollectionView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var articleCollectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        feedCollectionView.delegate = self
-        feedCollectionView.dataSource = self
+
+        articleCollectionView.delegate = self
+        articleCollectionView.dataSource = self
         registCell()
         setupFlowLayout()
         
         getArticles(pageCnt)
+        
     }
     
     func registCell() {
-        self.feedCollectionView.register(UINib(nibName: "FeedCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "FeedCell")
+        self.articleCollectionView.register(UINib(nibName: "FeedCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "FeedCell")
     }
     
     func getArticles(_ page: Int) {
@@ -57,19 +61,25 @@ class FeedVC: UIViewController {
         
         let halfWidth = UIScreen.main.bounds.width / 3
         flowLayout.itemSize = CGSize(width: halfWidth * 0.9 , height: halfWidth * 0.9)
-        self.feedCollectionView.collectionViewLayout = flowLayout
+        self.articleCollectionView.collectionViewLayout = flowLayout
     }
-
+    
+    @IBAction func logoutBtnClicked(_ sender: Any) {
+        self.tabBarController?.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
-extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+extension MyPageVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedCell", for: indexPath) as? FeedCollectionViewCell else {
+        guard let cell = articleCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedCell", for: indexPath) as? FeedCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -85,7 +95,7 @@ extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellwidth = (feedCollectionView.frame.width - 4)/3
+        let cellwidth = (articleCollectionView.frame.width - 4)/3
         let cellheight = cellwidth
         return CGSize(width: cellwidth, height: cellheight)
     }
