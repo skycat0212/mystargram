@@ -122,7 +122,29 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func deleteBtnClicked(_ sender: Any) {
-        
+        Network.shared.deleteArticle(article: article!, completion: {
+            didSuccess in
+            switch didSuccess {
+            case true:
+                let alertController = UIAlertController(title: "게시글을 삭제하였습니다.", message: nil, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "확인", style: .default, handler: { [self]_ in dismissVC()})
+                alertController.addAction(okButton)
+                self.present(alertController, animated: true, completion: nil)
+                
+                break
+            case false:
+                let alertController = UIAlertController(title: "게시글을 삭제하지 못하였습니다.", message: nil, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alertController.addAction(okButton)
+                self.present(alertController, animated: true, completion: nil)
+                break
+            }
+        })
+    }
+    
+    @objc
+    func dismissVC() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     

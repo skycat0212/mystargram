@@ -29,6 +29,11 @@ class FeedVC: UIViewController {
         getArticles(pageCnt)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        viewDidLoad()
+    }
+    
     func registCell() {
         self.feedCollectionView.register(UINib(nibName: "FeedCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "FeedCell")
     }

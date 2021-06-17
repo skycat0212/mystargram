@@ -169,6 +169,36 @@ class Network {
             }
     }
     
+    func deleteArticle(article: ArticleModel, completion: @escaping(Bool) -> Void) {
+        
+        let url = baseUrl + "article/delete/"
+        guard let token = globalToken?.token else { return }
+        let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
+        AF.request(
+            url,
+            method: .delete,
+            parameters: article,
+            encoder: JSONParameterEncoder.default,
+            headers: header).responseJSON { res in
+                print("res.data : ", res.data)
+                print("res.result : ", res.result)
+
+                switch res.result {
+                case .success(let data):
+                    print("delete data : ", data)
+                    print("delete data type : ", type(of: data))
+                    print("data as! Bool : ", data as! Bool)
+                    var a = data as! Bool
+                    completion(a)
+                    break
+                case .failure(let err):
+                    completion(false)
+                    break
+                }
+            }
+        
+    }
+    
     
     
 }
