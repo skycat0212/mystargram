@@ -24,6 +24,8 @@ class TimeLineVC: UIViewController {
         timelineTabelView.delegate = self
         timelineTabelView.dataSource = self
         
+        
+        
         getArticles(pageCnt)
         
     }
@@ -43,7 +45,12 @@ class TimeLineVC: UIViewController {
             
         }
     }
-
+    
+    @IBAction func refreshBtnClicked(_ sender: Any) {
+        self.loadView()
+        self.viewDidLoad()
+    }
+    
 }
 
 extension TimeLineVC: UITableViewDelegate, UITableViewDataSource {
@@ -77,9 +84,17 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var postImgView: UIImageView!
     @IBOutlet weak var contentTxtView: UITextView!
     
+    @IBOutlet weak var cellView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+//        self.postImgView.layer.cornerRadius = 5
+        
+        self.cellView.layer.borderWidth = 1
+        self.cellView.layer.cornerRadius = 5
+        self.cellView.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

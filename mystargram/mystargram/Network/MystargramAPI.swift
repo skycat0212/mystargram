@@ -20,18 +20,19 @@ class Network {
     func loginRequest(user: LoginModel, completion: @escaping (Result<TokenModel, AFError>) -> Void) {
         let url = baseUrl + API.login.rawValue
         AF.request(url, method: .post, parameters: user, encoder: JSONParameterEncoder.default, headers: nil).validate(statusCode: 200..<300).responseDecodable(of: TokenModel.self) { res in
-            print("res : ", res)
-            print("result value : ", res.result)
+//            print("res : ", res)
+//            print("result value : ", res.result)
             if let data = res.data {
-                print("data value : ", data)
+//                print("data value : ", data)
             }
 //            print("data value unwrap : ", res.data!)
             switch res.result {
             case .success(let data):
-                print("data : ", data)
+//                print("data : ", data)
                 break
             case .failure(let error):
-                print("err : ", error)
+//                print("err : ", error)
+                break
             }
             completion(res.result)
         }
@@ -42,10 +43,12 @@ class Network {
         AF.request(url, method: .post, parameters: user, encoder: JSONParameterEncoder.default, headers: nil).responseJSON { res in
             switch res.result {
             case .success(let data):
-                print("data : ", data)
-                print("data as String : ", data)
+//                print("data : ", data)
+//                print("data as String : ", data)
+                break
             case .failure(let error):
-                print("err : ", error)
+//                print("err : ", error)
+                break
             }
             completion(nil)
         }
@@ -97,13 +100,13 @@ class Network {
         
     }
     
-    func saveArticle(articlePack: ArticlePack, completion:@escaping() -> Void) {
+    func saveArticle(articlePack: ArticlePack, completion:@escaping(Bool) -> Void) {
         
         let url = baseUrl + "article/write"
         guard let token = globalToken?.token else { return }
         let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
         
-        print("input article : ", articlePack)
+//        print("input article : ", articlePack)
         
         AF.request(
             url,
@@ -113,12 +116,15 @@ class Network {
             headers: header).responseJSON { res in
                 switch res.result {
                 case .success(let data):
-                    print("data : ", data)
-                    print("data as String : ", data)
+//                    print("data : ", data)
+//                    print("data as String : ", data)
+                    completion(true)
+                    break
                 case .failure(let error):
-                    print("err : ", error)
+//                    print("err : ", error)
+                    completion(false)
+                    break
                 }
-                
             }
         
     }

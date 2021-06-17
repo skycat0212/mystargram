@@ -42,6 +42,10 @@ class AddArticleVC: UIViewController {
         // set selectImgBtn UI
         selectImgBtn.layer.borderWidth = 1
         selectImgBtn.layer.cornerRadius = 5
+        contentTxtView.layer.borderWidth = 1
+        contentTxtView.layer.cornerRadius = 5
+        articleImgView.layer.borderWidth = 1
+        articleImgView.layer.cornerRadius = 5
         
     }
     
@@ -54,22 +58,60 @@ class AddArticleVC: UIViewController {
     
     @objc
     func save() {
+        if contentImg == nil {
+            alertSetImage()
+            return
+        }
+        if contentTxtView.text == "" {
+            alertSetText()
+            return
+        }
+        
         var article: ArticleModel = ArticleModel(id: nil, writer: nil, content: nil)
         guard let content = contentTxtView.text else { return }
         article.content = content
         guard let image = contentImg else { return }
         
         let articlePack: ArticlePack = ArticlePack(article: article, articleImgData: image.convertToBase64())
-        print("image data : ")
-        print(articlePack.articleImgData)
         
         Network.shared.saveArticle(articlePack: articlePack) {
-            
+            didComplete in
+            switch didComplete {
+            case true:
+                self.alertFinish()
+                self.loadView()
+                break
+            case false:
+                self.alertFail()
+                break
+            }
         }
-        
     }
     
-    
+    func alertSetText() {
+        let alertController = UIAlertController(title: "내용을 입력하세요.", message: nil, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    func alertSetImage() {
+        let alertController = UIAlertController(title: "사진을 선택하세요.", message: nil, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    func alertFinish() {
+        let alertController = UIAlertController(title: "등록되었습니다.", message: nil, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    func alertFail() {
+        let alertController = UIAlertController(title: "게시글을 등록하는데 실패하였습니다.", message: nil, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        self.present(alertController, animated: true, completion: nil)
+    }
     //MARK: - 이미지 선택
 
     @IBAction func clickImgSelectBtn(_ sender: Any) {
