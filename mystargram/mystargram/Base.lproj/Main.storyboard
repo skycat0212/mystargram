@@ -463,7 +463,6 @@
                                     <color key="titleColor" systemColor="systemIndigoColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="refreshBtnClicked:" destination="HIN-4U-mbK" eventType="touchUpInside" id="gd1-ZV-GTe"/>
                                     <action selector="refreshBtnClicked:" destination="pdZ-2V-9YT" eventType="touchUpInside" id="yI9-x8-krK"/>
                                 </connections>
                             </button>
@@ -995,6 +994,16 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bw-Izj">
+                                <rect key="frame" x="319" y="102" width="75" height="22"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="refresh" image="arrow.clockwise" catalog="system">
+                                    <color key="titleColor" systemColor="systemIndigoColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshBtnClicked:" destination="uxg-5I-5yu" eventType="touchUpInside" id="cXZ-Nc-6IT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dbB-y4-2LY"/>
                         <color key="backgroundColor" name="BG"/>
@@ -1009,6 +1018,8 @@
                             <constraint firstItem="fod-zY-9Lq" firstAttribute="top" secondItem="QED-Gb-vUf" secondAttribute="bottom" id="czM-s2-juq"/>
                             <constraint firstItem="QED-Gb-vUf" firstAttribute="top" secondItem="dbB-y4-2LY" secondAttribute="top" id="gOs-x1-69J"/>
                             <constraint firstItem="fod-zY-9Lq" firstAttribute="leading" secondItem="dbB-y4-2LY" secondAttribute="leading" id="mQN-Hu-KPK"/>
+                            <constraint firstItem="ntA-bw-Izj" firstAttribute="centerY" secondItem="mv4-zT-AcB" secondAttribute="centerY" id="ooP-ue-huo"/>
+                            <constraint firstItem="dbB-y4-2LY" firstAttribute="trailing" secondItem="ntA-bw-Izj" secondAttribute="trailing" constant="20" id="xr2-Ho-dZt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wEE-AJ-cC6"/>

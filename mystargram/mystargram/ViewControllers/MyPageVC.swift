@@ -81,6 +81,11 @@ class MyPageVC: UIViewController {
         self.tabBarController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func refreshBtnClicked(_ sender: Any) {
+        pageCnt = 0
+        self.loadView()
+        self.viewDidLoad()
+    }
     
 }
 
