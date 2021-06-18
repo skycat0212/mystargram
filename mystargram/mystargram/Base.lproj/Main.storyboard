@@ -195,7 +195,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0iJ-o7-D9c">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0iJ-o7-D9c">
                                 <rect key="frame" x="0.0" y="138" width="414" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -273,6 +273,41 @@
                                             <outlet property="contentTxtView" destination="itj-Q7-EaJ" id="C06-hw-sPS"/>
                                             <outlet property="postImgView" destination="fGZ-Vr-3BR" id="Prl-IW-5FF"/>
                                             <outlet property="userIDLabel" destination="a4h-gY-B6P" id="QW0-2P-lKQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoreTimelineCell" id="EEB-r6-C8d" customClass="MoreTimelineCell" customModule="mystargram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="556.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EEB-r6-C8d" id="CUS-lB-Gaw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUw-R2-OrG">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="44"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFN-Mm-hf6">
+                                                            <rect key="frame" x="158.5" y="10" width="57" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="HFN-Mm-hf6" firstAttribute="centerX" secondItem="LUw-R2-OrG" secondAttribute="centerX" id="HVl-Cf-VKj"/>
+                                                        <constraint firstItem="HFN-Mm-hf6" firstAttribute="centerY" secondItem="LUw-R2-OrG" secondAttribute="centerY" id="vaV-md-qAP"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="LUw-R2-OrG" secondAttribute="bottom" id="11B-XX-c5w"/>
+                                                <constraint firstAttribute="trailing" secondItem="LUw-R2-OrG" secondAttribute="trailing" constant="20" id="2dv-Qg-KAJ"/>
+                                                <constraint firstItem="LUw-R2-OrG" firstAttribute="top" secondItem="CUS-lB-Gaw" secondAttribute="top" id="bfO-Cv-uTi"/>
+                                                <constraint firstItem="LUw-R2-OrG" firstAttribute="leading" secondItem="CUS-lB-Gaw" secondAttribute="leading" constant="20" id="bmT-T7-J3i"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellView" destination="LUw-R2-OrG" id="Def-uy-VCf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -418,7 +453,6 @@
         <!--DetailVC-->
         <scene sceneID="f72-mQ-L1P">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qaf-cy-IDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DetailVC" id="IWA-qD-HDf" customClass="DetailVC" customModule="mystargram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bgr-A6-dgE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -504,6 +538,7 @@
                         <outlet property="userIdLabel" destination="b5Q-nf-kZ5" id="XHj-8d-53v"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qaf-cy-IDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3470" y="586"/>
         </scene>
@@ -1029,7 +1064,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="399-0n-0db"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="SIGN UP"/>
+                                        <connections>
+                                            <action selector="signUpBtnClicked:" destination="s5o-k4-pfC" eventType="touchUpInside" id="1Mv-iS-v0L"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

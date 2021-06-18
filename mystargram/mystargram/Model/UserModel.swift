@@ -20,9 +20,9 @@ struct SignUpModel: Codable {
 }
 
 struct UserModel: Codable {
-    var id: Int
-    var username: String
-    var password: String
+    var id: Int?
+    var username: String?
+    var password: String?
 }
 
 

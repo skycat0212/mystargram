@@ -38,9 +38,9 @@ class Network {
         }
     }
     
-    func signUpRequest(user: SignUpModel, completion: @escaping (AFDataResponse<Data?>?) -> Void) {
+    func signUpRequest(user: SignUpModel, completion: @escaping (Result<UserModel, AFError>) -> Void) {
         let url = baseUrl + API.signUp.rawValue
-        AF.request(url, method: .post, parameters: user, encoder: JSONParameterEncoder.default, headers: nil).responseJSON { res in
+        AF.request(url, method: .post, parameters: user, encoder: JSONParameterEncoder.default, headers: nil).responseDecodable(of: UserModel.self) { res in
             switch res.result {
             case .success(let data):
 //                print("data : ", data)
@@ -50,7 +50,7 @@ class Network {
 //                print("err : ", error)
                 break
             }
-            completion(nil)
+            completion(res.result)
         }
     }
     
