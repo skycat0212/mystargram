@@ -215,4 +215,20 @@ class Network {
         
     }
     
+    func resignUser(username: String, completion:@escaping() -> Void) {
+        let url = baseUrl + "user/delete/" + username
+        guard let token = globalToken?.token else { return }
+        let header: HTTPHeaders = [HTTPHeader(name: "X-AUTH-TOKEN", value: token)]
+        AF.request(
+            url,
+            method: .delete,
+            parameters: nil as UserModel?,
+            encoder: JSONParameterEncoder.default,
+            headers: header).responseJSON {_ in
+                completion()
+            }
+            
+        
+    }
+    
 }

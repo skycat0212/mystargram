@@ -87,6 +87,11 @@ class MyPageVC: UIViewController {
         self.viewDidLoad()
     }
     
+    @IBAction func resignBtnClicked(_ sender: Any) {
+        Network.shared.resignUser(username: pageUserName){
+            self.tabBarController?.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 

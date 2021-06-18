@@ -901,6 +901,9 @@
                                                                         <state key="normal" title="회원탈퇴">
                                                                             <color key="titleColor" systemColor="systemIndigoColor"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="resignBtnClicked:" destination="uxg-5I-5yu" eventType="touchUpInside" id="Xsz-8P-JNR"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
