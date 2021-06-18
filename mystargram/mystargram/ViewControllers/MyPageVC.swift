@@ -88,8 +88,24 @@ class MyPageVC: UIViewController {
     }
     
     @IBAction func resignBtnClicked(_ sender: Any) {
-        Network.shared.resignUser(username: pageUserName){
-            self.tabBarController?.dismiss(animated: true, completion: nil)
+        Network.shared.resignUser(username: pageUserName){ didSuccess in
+            print("did success: ", didSuccess)
+            if didSuccess == true {
+                let alertController = UIAlertController(title: "탈퇴되었습니다.", message: nil, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "확인", style: .default, handler: {_ in
+                    self.tabBarController?.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(okButton)
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "실패하였습니다.", message: nil, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "확인", style: .default, handler: {_ in
+                    self.tabBarController?.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(okButton)
+                self.present(alertController, animated: true, completion: nil)
+            }
+
         }
     }
 }

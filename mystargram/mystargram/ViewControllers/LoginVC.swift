@@ -36,6 +36,10 @@ class LoginVC: UIViewController {
                 userName = username
                 self.goMain()
             case .failure(let err):
+                let alertController = UIAlertController(title: "로그인 실패하였습니다.", message: nil, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alertController.addAction(okButton)
+                self.present(alertController, animated: true, completion: nil)
                 print(err)
                 break
             }

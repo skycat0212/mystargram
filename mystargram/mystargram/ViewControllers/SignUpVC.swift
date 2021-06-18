@@ -35,6 +35,14 @@ class SignUpVC: UIViewController {
             
             return
         }
+        if idTxtField.text?.contains("/") == true || idTxtField.text?.contains(" ") == true {
+            let alertController = UIAlertController(title: "특수문자나 띄어쓰기는 사용하실 수 없습니다.", message: nil, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alertController.addAction(okButton)
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
         print(3)
         guard let username = idTxtField.text else { return }
         
